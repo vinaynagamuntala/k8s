@@ -16,7 +16,6 @@ pipeline {
             steps {
                 sh'''
                 cd k8s/stage
-                kubectl create namespace static
                 kubectl apply -f .
                 ''' 
             }

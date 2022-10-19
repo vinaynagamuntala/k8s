@@ -15,8 +15,8 @@ pipeline {
         stage('k8s deployment') {
             steps {
                 sh'''
-                cd k8s/stage
-                kubectl apply -f .
+                kubectl get nodes
+                helm upgrade -i static-dev static
                 ''' 
             }
         }

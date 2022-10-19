@@ -14,12 +14,16 @@ pipeline {
         }
         stage('k8s deployment') {
             steps {
-                #kubectl apply -f deployment.yaml service.yaml ingress.yaml n.yaml 
+                sh'''
+                kubectl apply -f deployment.yaml service.yaml ingress.yaml n.yaml
+                ''' 
             }
         }
         stage('validate') {
             steps {
-                #kubectl get pods -A 
+                sh'''
+                kubectl get pods -A
+                '''
             }
         }
     }

@@ -1,4 +1,4 @@
-apiversion: v1
-kind: Namespace
-metadata: 
-  name: {{ .Values.namespace }}
+# apiversion: v1
+# kind: Namespace
+# metadata: 
+#   name: {{ .Values.namespace }}

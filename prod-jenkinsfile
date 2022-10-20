@@ -15,7 +15,7 @@ pipeline {
         stage('k8s deployment') {
             steps {
                 sh'''
-                helm upgrade -i static-dev static -f stage/prod-values.yaml -n prod
+                helm upgrade -i static-dev static -f static/prod-values.yaml -n prod
                 ''' 
             }
         }

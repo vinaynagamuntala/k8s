@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        // stage('docker build') {
+        //     steps {
+        //         sh'''
+        //         sudo docker build -t 816669420587.dkr.ecr.ap-southeast-1.amazonaws.com/static-image:$BUILD_NUMBER .
+        //         aws ecr get-login-password --region ap-southeast-1 |sudo docker login --username AWS --password-stdin 816669420587.dkr.ecr.ap-southeast-1.amazonaws.com
+        //         sudo docker images
+        //         sudo docker push 816669420587.dkr.ecr.ap-southeast-1.amazonaws.com/static-image:$BUILD_NUMBER
+        //         '''
+        //     }
+        // }
+        stage('k8s deployment') {
+            steps {
+                sh'''
+                helm upgrade -i static-dev static -f prod/prod-values.yaml
+                ''' 
+            }
+        }
+    }
+}
